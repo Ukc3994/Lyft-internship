@@ -41,6 +41,18 @@ class TestBattery(unittest.TestCase):
         self.assertTrue(battery.needs_service())
         self.assertFalse(battery.needs_service())
 
+class TestBattery(unittest.TestCase):
+    def test_needs_service(self):
+        # Testing the needs_service() method of Battery with the upgraded Spindler battery.
+        # Created an instance of Battery.
+        last_service_date = datetime.today().date().replace(year=datetime.today().year - 3)
+        warning_light_is_on = False
+        battery = Battery(last_service_date, warning_light_is_on)
+
+        # Making assertions to validate the behavior of needs_service() method
+        self.assertTrue(battery.needs_service())
+        self.assertFalse(battery.needs_service())
+
 if __name__ == '__main__':
     unittest.main()
 
